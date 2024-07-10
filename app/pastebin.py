@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 from about.about import about_blueprint
+from users.users import users_blueprint
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sdgmsergyehto2q3ro12r34ihweg'
@@ -10,6 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pastebin.db'
 db = SQLAlchemy(app)
 
 app.register_blueprint(about_blueprint)
+app.register_blueprint(users_blueprint)
 
 
 @app.route('/')
