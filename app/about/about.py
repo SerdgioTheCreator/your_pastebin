@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-about_blueprint = Blueprint('about', __name__, template_folder='templates/about/', static_folder='static')
+about_blueprint = Blueprint('about', __name__, template_folder='../templates/about/', static_folder='static')
 
 
 @about_blueprint.route('/about')
