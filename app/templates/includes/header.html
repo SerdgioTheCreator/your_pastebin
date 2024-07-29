@@ -17,9 +17,14 @@
         </form>
 
         <div class="text-end">
+          {% if current_user.is_authenticated %}
+          <button type="button" class="btn btn-outline-light me-2"><a href="{{ url_for('logout') }}" class="nav-link px-2 text-white">Logout</a></button>
+          {% else %}
           <button type="button" class="btn btn-outline-light me-2"><a href="{{ url_for('login') }}" class="nav-link px-2 text-white">Login</a></button>
+          {% endif %}
           <button type="button" class="btn btn-warning"><a href="{{ url_for('signup') }}" class="nav-link px-2 text-white">Sign-up</a></button>
         </div>
+
       </div>
     </div>
   </header>

@@ -110,6 +110,8 @@ def login():
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
                 return redirect(url_for('login'))
+        else:
+            return render_template('core/304.html', title='Custom 304')
 
     return render_template('users/login.html', title='Авторизация', form=form)
 
@@ -118,7 +120,12 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('/login'))
+    return redirect(url_for('login'))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('core/404.html'), 404
 
 
 if __name__ == '__main__':
